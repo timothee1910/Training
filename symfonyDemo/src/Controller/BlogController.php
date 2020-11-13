@@ -81,6 +81,7 @@ class BlogController extends AbstractController
         /**
          * Analyse de la requète d'envoie du formulaire
          * Utilisation de la function handleRequest
+         * Pour la modification
          */
         $form->handleRequest($request);
         /**
@@ -100,7 +101,7 @@ class BlogController extends AbstractController
             return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);
         }
 
-        return $this->render('blog/create.html.twig', ['formArticle' => $form->createView(), 'editMode' => $article->getId() !== null // param pour changé le bouton. Si il a déja un Id ou non par un booleen
+        return $this->render('blog/create.html.twig', ['formArticle' => $form->createView(), 'editMode' => $article->getId() !== null // param pour changer le bouton. Si il a déja un Id ou non par un booleen
         ]);
     }
 

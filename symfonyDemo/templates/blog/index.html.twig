@@ -51,7 +51,7 @@
 			//Ici le this renvoie le lien (a savoir le <a>)
 		    const url = this.href;
             // avec le this on prend tous les elements du dom qui sont dans le <a>
-			// avec querySelector on prend le span présent dan sle this qui a la class XXX
+			// avec querySelector on prend le span présent dans le this qui a la class XXX
 		    const spanCount = this.querySelector('span.js-likes');
 		    const icon = this.querySelector('i');
 		    var aCurrent = this.id;
@@ -88,7 +88,9 @@
                 }
             })
 		}
+		//console.log(document.querySelectorAll('a.js-like'))
 		document.querySelectorAll('a.js-like').forEach(function (link) {
+		    //console.log(link);
 		    link.addEventListener('click', onClickBtnLike);
         })
 	</script>
