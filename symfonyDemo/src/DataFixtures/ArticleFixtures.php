@@ -31,12 +31,19 @@ class ArticleFixtures extends Fixture
                     ->setCategory($category);
                 $manager->persist($article);
 
+                /**
+                 * Pour chaque article on crée 4 à 10 commentaires
+                 * join = implode ici
+                 */
                 for ($k = 1; $k<= mt_rand(4, 10); $k++) {
                     $comment =  new Comment();
                     $content = '<p>' .join($faker->paragraphs(2),'</p><p>'). '</p>';
                     $now = new \DateTime();
+                    /**
+                     * Datetime::diff() retourne la difference entre deux objets datetime
+                     */
                     $interval = $now->diff($article->getCreatedAt());
-                    //pour connaitre le nombre de jour de l'interval
+                    //pour connaitre le nombre de jours de l'interval
                     $days = $interval->days;
                     $min = '-'.$days.'days'; //-100days par exemple Cela nous donne la date de création (en jours) de l'article
 
